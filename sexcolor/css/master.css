@@ -1,0 +1,41 @@
+/* rules used or usable in different parts of the page */
+.pink-font {
+    color: pink;
+}
+
+.lightskyblue-font {
+    color: lightskyblue;
+}
+/* /rules used or usable in different parts of the page */
+
+html {
+
+    /* to make a reference for the percentage heights of thix box's children */
+    height: 100%;
+
+    font-size: 14px;
+}
+
+body {
+
+    /* to make a reference for the percentage heights of thix box's children */
+    height: 100%;
+    
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: .04rem;
+}
+
+main {
+    display: flex;
+    height: 100%;  
+    justify-content: center;
+    align-items: center;
+}
+
+main .container {
+    border: 2px rgb(52, 166, 219) solid;
+    border-radius: 15px;
+    padding: 15px;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 18px;
+}
