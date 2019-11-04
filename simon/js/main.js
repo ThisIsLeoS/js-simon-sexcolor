@@ -2,7 +2,7 @@
 deve inserire un prompt alla volta i numeri che ha visto precedentemente. Dopo che sono stati
 inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati
 */
-// @ts-check
+
 // the numbers to memorize are generated
 var randomNums = [];
 for (var i = 0; i < 5; ++i)
