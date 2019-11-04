@@ -2,29 +2,49 @@
 deve inserire un prompt alla volta i numeri che ha visto precedentemente. Dopo che sono stati
 inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati
 */
-
+// @ts-check
 // the numbers to memorize are generated
-var randomNumsCollection = [];
+var randomNums = [];
 for (var i = 0; i < 5; ++i)
 {
-    randomNumsCollection.push(getRandomInt(1, 100));
+    randomNums.push(getRandomInt(1, 100));
 }
-alert("The random numbers you have to memorize are: " + randomNumsCollection.join(", "));
+alert("The random numbers you have to memorize are: " + randomNums.join(", "));
+console.log("random nums:", randomNums);
 
 // 30 seconds countdown
-var countdown = setInterval(countdown, 1000);
-var counter = 30;
+var intervalID = setInterval(countdown, 1000);
+var counter = 1;
 function countdown()
 {
     console.log(counter--);
-    if (counter === 0) clearInterval(countdown);
-}
+    if (counter === 0)
+    {
+        clearInterval(intervalID);
 
-// the user is asked to enter the numbers
-alert("Now you can enter the 5 numbers");
-for (i = 0; i < 5; ++i)
-{
-    prompt("Enter a number: ");
+        // the user is asked to enter the numbers
+        alert("Now you can enter the 5 numbers");
+        var enteredNums = [];
+        for (i = 0; i < 5; ++i)
+        {
+            enteredNums.push(parseInt(prompt("Enter a number: "), 10));
+        }
+        console.log("Entered nums:", enteredNums);
+
+        // the correct entered numbers are inserted into an array
+        var correctNums = [];
+        for (i = 0; i < 5; ++i)
+        {
+            if (randomNums.includes(enteredNums[i])) correctNums.push(enteredNums[i]);
+        }
+
+        // the user is told which and how many numbers he or she has correctly remembered
+        var str;
+        if (correctNums.length === 0) str = "numbers";
+        else if (correctNums.length === 1) str = "number";
+        else str = "numbers: " + correctNums.join(", ");
+        console.log("You've remembered " + correctNums.length + " " + str);
+    }
 }
 
 /**
